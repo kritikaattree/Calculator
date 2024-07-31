@@ -23,17 +23,16 @@ body.dark-mode {
 }
 
 .theme-toggle button {
-    background: #ff8c00;
+    background: none;
     border: none;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 10px;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
-.theme-toggle button:hover {
-    background: #ff6600;
+.theme-toggle img {
+    width: 30px;
+    height: 30px;
+    transition: opacity 0.3s;
 }
 
 .calculator {

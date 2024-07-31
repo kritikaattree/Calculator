@@ -9,8 +9,15 @@ document.addEventListener('DOMContentLoaded', function () {
     let operator = '';
 
     const themeToggle = document.getElementById('toggle-theme');
+    const themeIcon = document.getElementById('theme-icon');
+
     themeToggle.addEventListener('click', function () {
         document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            themeIcon.src = 'moon.png';
+        } else {
+            themeIcon.src = 'sun.png';
+        }
     });
 
     buttons.forEach(button => {
@@ -82,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     break;
                 default:
-                    if (currentInput.includes('.') && value === '.') return;
                     currentInput += value;
                     result.textContent = currentInput;
                     break;
@@ -90,15 +96,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    function evaluate(a, b, operator) {
-        a = parseFloat(a);
-        b = parseFloat(b);
+    function evaluate(operand1, operand2, operator) {
         switch (operator) {
-            case '+': return (a + b).toString();
-            case '-': return (a - b).toString();
-            case '*': return (a * b).toString();
-            case '/': return (a / b).toString();
-            default: return b;
+            case '+':
+                return (parseFloat(operand1) + parseFloat(operand2)).toString();
+            case '-':
+                return (parseFloat(operand1) - parseFloat(operand2)).toString();
+            case '*':
+                return (parseFloat(operand1) * parseFloat(operand2)).toString();
+            case '/':
+                return (parseFloat(operand1) / parseFloat(operand2)).toString();
+            default:
+                return operand2;
         }
     }
 });
